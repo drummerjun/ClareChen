@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">ClareChen</string>
+    <string name="buy">Purchase from Pinkoi</string>
+    <string-array name="language">
+        <item>繁體中文</item>
+        <item>简体中文</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="currency">
+        <item>TWD:新台幣</item>
+        <item>HKD:港幣</item>
+        <item>RMB:人民币</item>
+        <item>USD:US Dollar</item>
+        <item>JP￥:日本円</item>
+        <item>฿:เงินบาท</item>
+        <item>€:Euro</item>
+        <item>£:British Pound</item>
+        <item>CAD:Canadian Dollar</item>
+        <item>SGD:Singapore Dollar</item>
+        <item>RM:Malaysian Ringgit</item>
+    </string-array>
+    <string name="about_title">Profile</string>
+    <string name="about_cc">Clare Chen, an industrial designer from the United States, and an aunt surrounded by nephews and nieces,
+        finds it very valuable and interesting of children\'s innocence and all their devilish acts.
+        Inspired by day to day interactions and observation of the little angels, CC products are easily relatable and can always put a smile on your face.
+
+        Forming as an extension of the designer's practical design and out of the box thinking, CC products are "simple but not simple".
+        Everything is made to bring practicality, convenience, and better childhood stories for every baby and their families</string>
+</resources>
