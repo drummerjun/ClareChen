@@ -1,6 +1,5 @@
-package com.drummerjun.clarechen.adapters
+package com.drummerjun.clarechen.ui
 
-import android.content.Context
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -17,14 +16,14 @@ import kotlinx.android.synthetic.main.item_product.view.*
  * Created by drummerjun on 1/13/2018.
  */
 class ProductAdapter (private val products: ArrayList<Product>) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductAdapter.ProductViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         var inflated = LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent, false)
         return ProductViewHolder(inflated)
     }
 
     override fun getItemCount() = products.size
 
-    override fun onBindViewHolder(holder: ProductAdapter.ProductViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         holder.bindItems(products[position])
     }
 

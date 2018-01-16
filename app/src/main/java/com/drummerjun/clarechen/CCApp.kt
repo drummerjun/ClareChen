@@ -4,6 +4,9 @@ import android.app.Application
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import android.graphics.Typeface
+
+
 
 /**
  * Created by drummerjun on 1/13/2018.
@@ -18,11 +21,17 @@ class CCApp : Application() {
         instance = this
         storageRef = FirebaseStorage.getInstance().reference
         db = FirebaseFirestore.getInstance()
+        initTypeFace()
     }
 
     companion object {
+        lateinit var font: Typeface
         lateinit var instance: CCApp
             private set
+    }
+
+    fun initTypeFace() {
+        font = Typeface.createFromAsset(assets, "fonts/canaro_extra_bold.otf")
     }
 
     fun getStorage() = storageRef

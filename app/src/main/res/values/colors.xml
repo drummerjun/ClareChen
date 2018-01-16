@@ -3,4 +3,9 @@
     <color name="colorPrimary">#84cacf</color>
     <color name="colorPrimaryDark">#636363</color>
     <color name="colorAccent">#fc929d</color>
+
+    <color name="guillotine_background">#444153</color>
+    <color name="guillotine_background_dark">#383547</color>
+    <color name="color_boy">#30d1d5</color>
+    <color name="color_girl">#ff5465</color>
 </resources>
