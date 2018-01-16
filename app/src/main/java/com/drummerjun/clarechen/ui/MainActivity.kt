@@ -6,6 +6,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import com.drummerjun.clarechen.CCApp
 import com.drummerjun.clarechen.Constants
 import com.drummerjun.clarechen.R
@@ -37,6 +38,11 @@ class MainActivity : AppCompatActivity() {
                 .setActionBarViewForAnimation(toolbar as View)
                 .setClosedOnStart(true)
                 .build()
+
+        group_all.setOnClickListener { Toast.makeText(this, "all", Toast.LENGTH_SHORT).show() }
+        group_boys.setOnClickListener { Toast.makeText(this, "boys", Toast.LENGTH_SHORT).show() }
+        group_girls.setOnClickListener { Toast.makeText(this, "girls", Toast.LENGTH_SHORT).show() }
+
         staggeredLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         productlistview.layoutManager = staggeredLayoutManager
 
