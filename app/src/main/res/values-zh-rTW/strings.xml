@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="buy">前往Pinkoi購買</string>
+    <string name="for_him">給他</string>
+    <string name="for_her">給她</string>
+    <string name="for_all">給心肝寶貝</string>
     <string name="about_title">設計師及品牌簡介</string>
     <string name="about_cc">美國工業設計出身的 Clare Chen，身兼工業設計師又是眾多小孩阿姨的 Clare，對於小孩純真古靈精怪的特性覺得非常寶貴與有意思。
         \n透過平常生活中與 baby們的互動與觀察所啓發，CC的商品總是令人會心一笑。\n

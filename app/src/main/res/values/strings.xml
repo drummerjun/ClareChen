@@ -19,6 +19,9 @@
         <item>SGD:Singapore Dollar</item>
         <item>RM:Malaysian Ringgit</item>
     </string-array>
+    <string name="for_him">For Him</string>
+    <string name="for_her">For Her</string>
+    <string name="for_all">For Love</string>
     <string name="about_title">Profile</string>
     <string name="about_cc">Clare Chen, an industrial designer from the United States, and an aunt surrounded by nephews and nieces,
         finds it very valuable and interesting of children\'s innocence and all their devilish acts.

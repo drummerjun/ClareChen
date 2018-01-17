@@ -22,7 +22,7 @@
             style="@style/ImageView.GuillotineItem"/>
         <com.drummerjun.clarechen.ui.widget.CanaroTextView
             style="@style/TextView.GuillotineItem"
-            android:text="For Her" />
+            android:text="@string/for_her" />
     </LinearLayout>
 
     <LinearLayout android:id="@+id/group_boys"
@@ -31,7 +31,7 @@
             style="@style/ImageView.GuillotineItem"/>
         <com.drummerjun.clarechen.ui.widget.CanaroTextView
             style="@style/TextView.GuillotineItem"
-            android:text="For Him" />
+            android:text="@string/for_him" />
     </LinearLayout>
 
     <LinearLayout android:id="@+id/group_all"
@@ -40,7 +40,7 @@
             style="@style/ImageView.GuillotineItem"/>
         <com.drummerjun.clarechen.ui.widget.CanaroTextView
             style="@style/TextView.GuillotineItem"
-            android:text="For Love" />
+            android:text="@string/for_all" />
     </LinearLayout>
 
     <View android:layout_width="match_parent"
