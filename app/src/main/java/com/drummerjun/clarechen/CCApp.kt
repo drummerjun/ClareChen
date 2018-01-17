@@ -31,7 +31,7 @@ class CCApp : Application() {
     }
 
     fun initTypeFace() {
-        font = Typeface.createFromAsset(assets, "fonts/canaro_extra_bold.otf")
+        font = Typeface.createFromAsset(assets, "fonts/JbtMzqLaYbbbCL9X6EvaIwzyDMXhdD8sAj6OAJTFsBI.otf")
     }
 
     fun getStorage() = storageRef
