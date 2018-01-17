@@ -43,6 +43,7 @@ dependencies {
     compile "com.flipboard:bottomsheet-core:1.5.3"
     compile "com.flipboard:bottomsheet-commons:1.5.3"
     compile 'com.github.Yalantis:GuillotineMenu-Android:1.2'
+    compile 'com.yalantis:phoenix:1.2.3'
     compile 'com.twitter.sdk.android:twitter:3.1.1'
     compile 'com.facebook.android:facebook-android-sdk:4.23.0'
     compile "com.android.support:appcompat-v7:${supportLibVersion}"

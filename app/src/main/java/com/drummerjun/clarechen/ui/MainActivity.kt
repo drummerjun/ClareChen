@@ -1,6 +1,5 @@
 package com.drummerjun.clarechen.ui
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v4.widget.SwipeRefreshLayout
@@ -9,14 +8,15 @@ import android.support.v7.widget.StaggeredGridLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
 import com.drummerjun.clarechen.CCApp
 import com.drummerjun.clarechen.Constants
 import com.drummerjun.clarechen.R
 import com.drummerjun.clarechen.obj.Product
+import com.yalantis.guillotine.animation.GuillotineAnimation
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.guillotine.*
-import com.yalantis.guillotine.animation.GuillotineAnimation
+import java.util.concurrent.TimeUnit
+
 
 class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
     private val TAG = MainActivity::class.simpleName
@@ -46,45 +46,35 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
         group_all.setOnClickListener {
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_CATE, 0).apply()
             guillotineAnimation.close()
-//            adapter.filterByCategory(0)
-//            productlistview.adapter.notifyDataSetChanged()
             retrieveData()
         }
 
         group_girls.setOnClickListener {
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_CATE, 1).apply()
             guillotineAnimation.close()
-//            adapter.filterByCategory(1)
-//            productlistview.adapter.notifyDataSetChanged()
             retrieveData()
         }
 
         group_boys.setOnClickListener {
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_CATE, 2).apply()
             guillotineAnimation.close()
-//            adapter.filterByCategory(2)
-//            productlistview.adapter.notifyDataSetChanged()
             retrieveData()
         }
 
         staggeredLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         productlistview.layoutManager = staggeredLayoutManager
 
-        swipe_container.setOnRefreshListener(this)
-        swipe_container.setColorSchemeResources(
-                R.color.colorPrimary,
-                android.R.color.white,
-                R.color.colorAccent,
-                R.color.colorPrimaryDark
-        )
-        swipe_container.post({
+        pull_to_refresh.setOnRefreshListener({
+            pull_to_refresh.setRefreshing(true)
             retrieveData()
+            pull_to_refresh.postDelayed({
+                pull_to_refresh.setRefreshing(false)
+            }, TimeUnit.SECONDS.toMillis(3))
         })
     }
 
     override fun onResume() {
         super.onResume()
-//        var currentCate = PreferenceManager.getDefaultSharedPreferences(applicationContext).getInt(Constants.KEY_ACTIVE_CATE, 0)
         retrieveData()
     }
 
@@ -94,7 +84,7 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
 
     private fun retrieveData() {
         val cate = PreferenceManager.getDefaultSharedPreferences(applicationContext).getInt(Constants.KEY_ACTIVE_CATE, 0)
-        swipe_container?.isRefreshing = true
+        pull_to_refresh.setRefreshing(true)
 
         if(cate == 0) {
             ccapp.getDb().collection(Constants.COLLECTION_PRODUCT).get()
@@ -113,7 +103,8 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
                         } else {
                             Log.e(TAG, "db fail!!!!")
                         }
-                        swipe_container?.isRefreshing = false
+//                        swipe_container?.isRefreshing = false
+                        pull_to_refresh.setRefreshing(false)
                     }
         } else {
             ccapp.getDb().collection(Constants.COLLECTION_PRODUCT)
@@ -134,8 +125,11 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
                         } else {
                             Log.e(TAG, "db fail!!!!")
                         }
-                        swipe_container?.isRefreshing = false
+//                        swipe_container?.isRefreshing = false
+                        pull_to_refresh.setRefreshing(false)
+
                     }
         }
     }
 }
+

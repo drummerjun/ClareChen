@@ -31,19 +31,6 @@ class ProductAdapter (private val products: ArrayList<Product>) : RecyclerView.A
         holder.bindItems(filtered[position])
     }
 
-    fun filterByCategory(cate: Int) {
-        Log.d(TAG, "cate=" + cate)
-        Log.d(TAG, "products size=" + products.size)
-        filtered.clear()
-        if(cate == 0) {
-            filtered.addAll(products)
-        } else {
-            products
-                    .filter { it.cate == cate }
-                    .forEach { filtered.add(it) }
-        }
-    }
-
     fun overrideData(data: ArrayList<Product>) {
         products.clear()
         products.addAll(data)
