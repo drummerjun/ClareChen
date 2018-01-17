@@ -8,4 +8,11 @@
     <color name="guillotine_background_dark">#383547</color>
     <color name="color_boy">#30d1d5</color>
     <color name="color_girl">#ff5465</color>
+
+    <color name="background_light">#fafafa</color>
+    <color name="scrim">#99323232</color>
+    <color name="light_grey">#fff5f5f5</color>
+    <color name="mid_grey">#40808080</color>
+    <color name="ripple_light">#99ffffff</color>
+    <color name="dribbble">#fff06292</color>
 </resources>

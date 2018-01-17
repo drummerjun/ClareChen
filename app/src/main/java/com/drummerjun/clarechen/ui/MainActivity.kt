@@ -2,7 +2,6 @@ package com.drummerjun.clarechen.ui
 
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.util.Log
@@ -18,7 +17,7 @@ import kotlinx.android.synthetic.main.guillotine.*
 import java.util.concurrent.TimeUnit
 
 
-class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
+class MainActivity : AppCompatActivity() {
     private val TAG = MainActivity::class.simpleName
     private lateinit var staggeredLayoutManager: StaggeredGridLayoutManager
     private val ccapp = CCApp.instance
@@ -78,10 +77,6 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
         retrieveData()
     }
 
-    override fun onRefresh() {
-        retrieveData()
-    }
-
     private fun retrieveData() {
         val cate = PreferenceManager.getDefaultSharedPreferences(applicationContext).getInt(Constants.KEY_ACTIVE_CATE, 0)
         pull_to_refresh.setRefreshing(true)
@@ -103,7 +98,6 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
                         } else {
                             Log.e(TAG, "db fail!!!!")
                         }
-//                        swipe_container?.isRefreshing = false
                         pull_to_refresh.setRefreshing(false)
                     }
         } else {
@@ -125,7 +119,6 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
                         } else {
                             Log.e(TAG, "db fail!!!!")
                         }
-//                        swipe_container?.isRefreshing = false
                         pull_to_refresh.setRefreshing(false)
 
                     }

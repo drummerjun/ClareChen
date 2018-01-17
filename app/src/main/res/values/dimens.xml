@@ -8,4 +8,9 @@
 
     <dimen name="guillotine_item_text_size">20sp</dimen>
     <dimen name="guillotine_actionbar_background_view_height">35dp</dimen>
+
+    <dimen name="padding_normal">16dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="touch_raise">6dp</dimen>
+    <dimen name="shot_collapsed_app_bar_height">168dp</dimen>
 </resources>

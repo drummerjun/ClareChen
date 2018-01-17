@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">ClareChen</string>
     <string name="buy">Purchase from Pinkoi</string>
+    <string name="transition_shot" translatable="false">shot</string>
+    <string name="transition_shot_background" translatable="false">shot_background</string>
     <string-array name="language">
         <item>繁體中文</item>
         <item>简体中文</item>
