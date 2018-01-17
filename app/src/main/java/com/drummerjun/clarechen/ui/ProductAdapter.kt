@@ -2,14 +2,11 @@ package com.drummerjun.clarechen.ui
 
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.drummerjun.clarechen.Constants
 import com.drummerjun.clarechen.R
-import com.drummerjun.clarechen.activities.WebAcivity
 import com.drummerjun.clarechen.obj.Product
 import kotlinx.android.synthetic.main.item_product.view.*
 
@@ -47,9 +44,9 @@ class ProductAdapter (private val products: ArrayList<Product>) : RecyclerView.A
 
         override fun onClick(v: View) {
             val context = itemView.context
-            val showPhotoIntent = Intent(context, WebAcivity::class.java)
+            val showPhotoIntent = Intent(context, ProductDetailActivity::class.java)
 //            showPhotoIntent.putExtra(Constants.KEY_PRODUCT_LINK, product!!.link[0])
-//            context.startActivity(showPhotoIntent)
+            context.startActivity(showPhotoIntent)
         }
 
         fun bindItems(product: Product) {

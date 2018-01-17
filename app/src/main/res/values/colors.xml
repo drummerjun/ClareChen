@@ -15,4 +15,6 @@
     <color name="mid_grey">#40808080</color>
     <color name="ripple_light">#99ffffff</color>
     <color name="dribbble">#fff06292</color>
+    <color name="fab_heart_empty">#ffffffff</color>
+    <color name="fab_heart_full">#ffffffff</color>
 </resources>
