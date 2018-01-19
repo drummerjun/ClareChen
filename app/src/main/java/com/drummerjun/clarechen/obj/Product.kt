@@ -71,20 +71,6 @@ class Product(
     }
 
     override fun toString(): String {
-        var images = ""
-        for(i in image.indices) {
-            images += "[" + i + "]" + image[i] + "\n"
-        }
-
-        var links = ""
-        for(i in link.indices) {
-            links += "[" + i + "]" + link[i] + "\n"
-        }
-
-        var prices = ""
-        for(i in price.indices) {
-            prices += "[" + i + "]" + price[i] + "\n"
-        }
         return "Name=" + name + ";\nCategory=" + cate + "; Color=" + color +
                 ";\nPrice=" + price + ";\nImages=" + image + ";\nLinks=" + link
     }
