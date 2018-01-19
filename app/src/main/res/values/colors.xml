@@ -17,4 +17,10 @@
     <color name="dribbble">#fff06292</color>
     <color name="fab_heart_empty">#ffffffff</color>
     <color name="fab_heart_full">#ffffffff</color>
+    <color name="dribbble_link_highlight">#b3f06292</color>
+
+    <color name="text_primary_dark">#de000000</color> <!-- 87% -->
+    <color name="text_secondary_dark">#8a000000</color> <!-- 54% -->
+    <color name="text_tertiary_dark">#61000000</color> <!-- 38% -->
+
 </resources>

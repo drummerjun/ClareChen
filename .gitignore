@@ -15,4 +15,5 @@ Constants.kt
 google-services.json
 .externalNativeBuild
 /app/release
+/third_party/*/build
 *.apk

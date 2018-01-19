@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.guillotine.*
 import java.util.concurrent.TimeUnit
 
-
 class MainActivity : AppCompatActivity() {
     private val TAG = MainActivity::class.simpleName
     private lateinit var staggeredLayoutManager: StaggeredGridLayoutManager

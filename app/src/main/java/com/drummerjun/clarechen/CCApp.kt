@@ -6,8 +6,6 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import android.graphics.Typeface
 
-
-
 /**
  * Created by drummerjun on 1/13/2018.
  */
@@ -31,7 +29,7 @@ class CCApp : Application() {
     }
 
     fun initTypeFace() {
-        font = Typeface.createFromAsset(assets, "fonts/JbtMzqLaYbbbCL9X6EvaIwzyDMXhdD8sAj6OAJTFsBI.otf")
+        font = Typeface.createFromAsset(assets, "fonts/cc_font.otf")
     }
 
     fun getStorage() = storageRef

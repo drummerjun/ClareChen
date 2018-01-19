@@ -1,15 +1,21 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.kotlin.android.extensions'
+apply plugin: 'kotlin-kapt'
+
+androidExtensions {
+    experimental = true
+}
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion versions.compileSdk
     defaultConfig {
         applicationId "com.drummerjun.clarechen"
-        minSdkVersion 21
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.code
+        versionName versions.name
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -21,40 +27,41 @@ android {
     }
 }
 
-ext.supportLibVersion = '26.1.0'
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation "com.android.support:appcompat-v7:${supportLibVersion}"
-    implementation "com.android.support:palette-v7:${supportLibVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${versions.kotlin}"
+    implementation "com.android.support:palette-v7:${versions.supportLibrary}"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation "com.android.support:appcompat-v7:${versions.supportLibrary}"
+    implementation "com.android.support:design:${versions.supportLibrary}"
+    implementation "com.android.support:cardview-v7:${versions.supportLibrary}"
+    implementation "com.android.support:recyclerview-v7:${versions.supportLibrary}"
+    implementation "com.android.support:support-v13:${versions.supportLibrary}"
     implementation 'com.google.firebase:firebase-messaging:11.8.0'
     implementation 'com.google.firebase:firebase-auth:11.8.0'
     testImplementation 'junit:junit:4.12'
-    compile 'com.squareup.okhttp3:okhttp:3.7.0'
-    compile 'com.squareup.retrofit2:retrofit:2.2.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
-    compile 'com.google.firebase:firebase-firestore:11.8.0'
-    compile 'com.google.firebase:firebase-storage:11.8.0'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'jp.wasabeef:glide-transformations:2.0.2'
-    compile 'com.orhanobut:dialogplus:1.11@aar'
-    compile "com.flipboard:bottomsheet-core:1.5.3"
-    compile "com.flipboard:bottomsheet-commons:1.5.3"
-    compile 'com.github.Yalantis:GuillotineMenu-Android:1.2'
-    compile 'com.yalantis:phoenix:1.2.3'
-    compile 'com.twitter.sdk.android:twitter:3.1.1'
-    compile 'com.facebook.android:facebook-android-sdk:4.23.0'
-    compile "com.android.support:appcompat-v7:${supportLibVersion}"
-    compile "com.android.support:design:${supportLibVersion}"
-    compile "com.android.support:cardview-v7:${supportLibVersion}"
-    compile "com.android.support:recyclerview-v7:${supportLibVersion}"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+    implementation "com.google.firebase:firebase-firestore:${versions.firebase}"
+    implementation "com.google.firebase:firebase-storage:${versions.firebase}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${versions.glide}"
+    implementation "com.github.bumptech.glide:glide:${versions.glide}"
+    implementation "com.github.bumptech.glide:okhttp3-integration:${versions.glide}"
+    kapt "android.arch.lifecycle:compiler:1.0.0"
+    kapt "com.github.bumptech.glide:compiler:${versions.glide}"
+    implementation 'jp.wasabeef:glide-transformations:2.0.2'
+    implementation 'com.orhanobut:dialogplus:1.11@aar'
+    implementation 'com.github.Yalantis:GuillotineMenu-Android:1.2'
+    implementation 'com.yalantis:phoenix:1.2.3'
+    implementation 'com.twitter.sdk.android:twitter:3.1.1'
+    implementation 'com.facebook.android:facebook-android-sdk:4.23.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile project(path: ':bypass')
 }
 
 apply plugin: 'com.google.gms.google-services'

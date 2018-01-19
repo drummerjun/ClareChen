@@ -10,8 +10,13 @@
     <dimen name="guillotine_actionbar_background_view_height">35dp</dimen>
 
     <dimen name="padding_normal">16dp</dimen>
+    <dimen name="spacing_large">32dp</dimen>
     <dimen name="fab_size">56dp</dimen>
     <dimen name="touch_raise">6dp</dimen>
     <dimen name="z_app_bar">4dp</dimen>
+    <dimen name="padding_room_for_fab">88dp</dimen> <!-- padding_normal + fab_size + padding_normal -->
+    <dimen name="fab_plus_single_padding">72dp</dimen> <!-- fab_size + padding_normal -->
+    <dimen name="half_fab_plus_single_padding">44dp</dimen> <!-- (fab_size / 2) + padding_normal -->
+
     <dimen name="shot_collapsed_app_bar_height">168dp</dimen>
 </resources>
