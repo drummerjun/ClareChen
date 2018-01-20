@@ -9,11 +9,14 @@
     card_view:cardCornerRadius="5dp">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
         <ImageView android:id="@+id/product_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="fitXY" />
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,14 +28,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="hadsfasdfadfadfsdfadfadsfasdfasdfasdffdasfasdfjjfjadjfjadfjd"
+                android:text=""
                 android:textColor="@android:color/white"
                 android:maxLines="2"/>
             <TextView android:id="@+id/product_price"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="TWD1234"
+                android:text=""
                 android:gravity="bottom|end"
                 android:textSize="16sp"
                 android:textColor="@android:color/white"/>

@@ -61,7 +61,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile project(path: ':bypass')
+//    compile project(path: ':bypass')
 }
 
 apply plugin: 'com.google.gms.google-services'

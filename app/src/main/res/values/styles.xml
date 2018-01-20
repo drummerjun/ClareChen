@@ -12,6 +12,17 @@
         <item name="android:windowActionBar">false</item>
     </style>
 
+    <style name="FabStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/spacing_large</item>
+        <item name="android:src">@drawable/ic_heart_break</item>
+        <item name="borderWidth">0dp</item>
+        <item name="elevation">6dp</item>
+        <item name="pressedTranslationZ">12dp</item>
+        <item name="rippleColor">@android:color/white</item>
+    </style>
+
     <style name="Toolbar">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
@@ -43,16 +54,6 @@
     </style>
     <style name="TextView.GuillotineItem.Selected">
         <item name="android:textColor">@color/colorPrimary</item>
-    </style>
-    <style name="TextAppearance.DribbbleShotTitle" parent="@android:style/TextAppearance.Material.Headline">
-        <item name="android:fontFamily">@font/roboto_mono</item>
-        <item name="android:textColor">@color/text_primary_dark</item>
-        <item name="lineHeightHint">32sp</item>
-    </style>
-    <style name="TextAppearance.DribbbleShotDescription" parent="@android:style/TextAppearance.Material.Subhead">
-        <item name="android:textColor">@color/text_tertiary_dark</item>
-        <item name="android:letterSpacing">0.01</item>
-        <item name="lineHeightHint">24sp</item>
     </style>
     <style name="ImageView" />
     <style name="ImageView.ContentItem">

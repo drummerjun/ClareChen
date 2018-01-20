@@ -18,12 +18,12 @@ class ProductAdapter (private val products: ArrayList<Product>) :
         RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
     val TAG = ProductAdapter::class.simpleName
     var filtered: ArrayList<Product> = products.clone() as ArrayList<Product>
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val inflated = LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent, false)
         return ProductViewHolder(inflated).listen { position, _ ->
             val selected = products[position]
-            val intent1 = Intent(parent.context, ProductDetailActivity::class.java)
+//            val intent1 = Intent(parent.context, ProductDetailActivity::class.java)
+            val intent1 = Intent(parent.context, ProductLayer1Activity::class.java)
             Log.d("ProductAdapter", "parcelable product=" + selected)
             intent1.putExtra("EXTRA_OBJ", selected)
             parent.context.startActivity(intent1)
