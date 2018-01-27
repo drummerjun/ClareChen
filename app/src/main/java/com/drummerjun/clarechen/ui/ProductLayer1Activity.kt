@@ -32,6 +32,7 @@ import com.bumptech.glide.request.target.Target
 class ProductLayer1Activity : AppCompatActivity() {
     private val TAG = ProductLayer1Activity::class.simpleName
     private lateinit var product: Product
+    private val cateResId = arrayOf(R.color.colorPrimaryDark, R.color.colorAccent, R.color.colorPrimary)
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,13 +50,17 @@ class ProductLayer1Activity : AppCompatActivity() {
 
         setSupportActionBar(toolbar1)
         supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(true)
 
         if(intent.hasExtra("EXTRA_OBJ")) {
             product = intent.getParcelableExtra("EXTRA_OBJ")
             Log.d(TAG, "product=" + product.toString())
 
-            collapsing_bar.title = product.name[0]
-            collapsing_bar.setExpandedTitleColor(resources.getColor(android.R.color.transparent))
+            collapsing_bar.title = product.name[1]
+            collapsing_bar.setExpandedTitleColor(resources.getColor(cateResId[product.cate]))
+            collapsing_bar.setContentScrimColor(resources.getColor(cateResId[product.cate]))
+            collapsing_bar.setStatusBarScrimColor(resources.getColor(cateResId[product.cate]))
             GlideApp.with(this)
                     .load(product.image[0])
 //                    .listener(object : RequestListener<Drawable> {
@@ -80,7 +85,8 @@ class ProductLayer1Activity : AppCompatActivity() {
 //                    })
                     .into(sqimage)
 
-            title1.text = product.name[0]
+            title1.text = product.description
+            details1.text = product.price[0]
         }
     }
 

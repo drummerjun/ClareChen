@@ -13,7 +13,7 @@ buildscript {
             'supportLibrary': '27.0.2',
             'firebase'      : '11.8.0',
             'glide'         : '4.5.0',
-            'kotlin'        : '1.2.10',
+            'kotlin'        : '1.2.21',
             'retrofit'      : '2.3.0',
     ]
 

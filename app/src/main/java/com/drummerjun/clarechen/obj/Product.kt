@@ -14,6 +14,7 @@ class Product(
         var image: List<String> = listOf(""),
         var link: List<String> = listOf(""),
         var name: List<String> = listOf(""),
+        var description: String = "",
         var price: List<String> = listOf("") ): Parcelable {
 
     constructor(parcel: Parcel) : this(
@@ -22,6 +23,7 @@ class Product(
             parcel.createStringArrayList(),
             parcel.createStringArrayList(),
             parcel.createStringArrayList(),
+            parcel.readString(),
             parcel.createStringArrayList())
 
     override fun equals(other: Any?): Boolean {
@@ -37,6 +39,7 @@ class Product(
         if(link != other.link) return false
         if(name.size != other.name.size) return false
         if(name != other.name) return false
+        if(description != other.description) return false
         if(price.size != other.price.size) return false
         if(price != other.price) return false
 
@@ -53,6 +56,7 @@ class Product(
         parcel.writeStringList(image)
         parcel.writeStringList(link)
         parcel.writeStringList(name)
+        parcel.writeString(description)
         parcel.writeStringList(price)
     }
 
@@ -72,6 +76,7 @@ class Product(
 
     override fun toString(): String {
         return "Name=" + name + ";\nCategory=" + cate + "; Color=" + color +
-                ";\nPrice=" + price + ";\nImages=" + image + ";\nLinks=" + link
+                ";\nPrice=" + price + ";\nImages=" + image + ";\nLinks=" + link +
+                "\nDescription=" + description
     }
 }

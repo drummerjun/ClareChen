@@ -46,7 +46,7 @@ class ProductAdapter (private val products: ArrayList<Product>) :
     class ProductViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         fun bind(product: Product) {
             GlideApp.with(itemView.context).load(product.image[0]).into(itemView.product_image)
-            itemView.product_name.text = product.name[0]
+            itemView.product_name.text = product.name[1]
             itemView.product_price.text = product.price[0]
         }
     }
