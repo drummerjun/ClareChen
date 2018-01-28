@@ -1,5 +1,5 @@
 # ClareChen
-### A catalogue app displaying products by CC with Kotlin
+### A catalogue app displaying products by [ClareChen](https://www.clarechen.com/) with Kotlin
 
 ##### Libraries used:
 - [Android Design Support Library](https://developer.android.com/training/material/design-library.html)
