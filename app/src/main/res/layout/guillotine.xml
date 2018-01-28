@@ -20,7 +20,7 @@
         style="@style/LinearLayout.GuillotineItem">
         <ImageView
             style="@style/ImageView.GuillotineItem"/>
-        <com.drummerjun.clarechen.ui.widget.CanaroTextView
+        <com.drummerjun.clarechen.ui.widget.CCTextView
             style="@style/TextView.GuillotineItem"
             android:text="@string/for_her" />
     </LinearLayout>
@@ -29,7 +29,7 @@
         style="@style/LinearLayout.GuillotineItem">
         <ImageView
             style="@style/ImageView.GuillotineItem"/>
-        <com.drummerjun.clarechen.ui.widget.CanaroTextView
+        <com.drummerjun.clarechen.ui.widget.CCTextView
             style="@style/TextView.GuillotineItem"
             android:text="@string/for_him" />
     </LinearLayout>
@@ -38,7 +38,7 @@
         style="@style/LinearLayout.GuillotineItem">
         <ImageView
             style="@style/ImageView.GuillotineItem"/>
-        <com.drummerjun.clarechen.ui.widget.CanaroTextView
+        <com.drummerjun.clarechen.ui.widget.CCTextView
             style="@style/TextView.GuillotineItem"
             android:text="@string/for_all" />
     </LinearLayout>
@@ -50,7 +50,7 @@
         style="@style/LinearLayout.GuillotineItem">
         <ImageView
             style="@style/ImageView.GuillotineItem"/>
-        <com.drummerjun.clarechen.ui.widget.CanaroTextView
+        <com.drummerjun.clarechen.ui.widget.CCTextView
             style="@style/TextView.GuillotineItem"
             android:text="Settings" />
     </LinearLayout>

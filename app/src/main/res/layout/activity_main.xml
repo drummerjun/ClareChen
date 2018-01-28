@@ -20,7 +20,7 @@
                 android:id="@+id/content_hamburger"
                 style="@style/ImageView.Hamburger"
                 android:src="@drawable/ic_menu_90" />
-            <com.drummerjun.clarechen.ui.widget.CanaroTextView
+            <com.drummerjun.clarechen.ui.widget.CCTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
