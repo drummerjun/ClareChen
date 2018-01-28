@@ -46,12 +46,53 @@
     <View android:layout_width="match_parent"
         android:layout_height="@dimen/guillotine_divider_height" />
 
-    <LinearLayout android:id="@+id/settings_group"
-        style="@style/LinearLayout.GuillotineItem">
-        <ImageView
-            style="@style/ImageView.GuillotineItem"/>
-        <com.drummerjun.clarechen.ui.widget.CCTextView
-            style="@style/TextView.GuillotineItem"
-            android:text="Settings" />
+    <!--<LinearLayout android:id="@+id/settings_group"-->
+        <!--style="@style/LinearLayout.GuillotineItem">-->
+        <!--<ImageView-->
+            <!--style="@style/ImageView.GuillotineItem"/>-->
+        <!--<com.drummerjun.clarechen.ui.widget.CCTextView-->
+            <!--style="@style/TextView.GuillotineItem"-->
+            <!--android:text="Settings" />-->
+    <!--</LinearLayout>-->
+
+    <LinearLayout android:id="@+id/settings_lang"
+        style="@style/LinearLayout.GuillotineItem"
+        android:gravity="center">
+        <TextView android:id="@+id/en_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circular"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:text="EN"/>
+
+        <View
+            android:layout_width="@dimen/guillotine_medium_margin"
+            android:layout_height="match_parent"/>
+
+        <TextView android:id="@+id/tw_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circular"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:text="繁"/>
+
+        <View
+            android:layout_width="@dimen/guillotine_medium_margin"
+            android:layout_height="match_parent"/>
+
+        <TextView android:id="@+id/cn_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circular"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:text="简"/>
     </LinearLayout>
+
+
 </LinearLayout>

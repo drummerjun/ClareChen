@@ -19,6 +19,7 @@ import com.yalantis.contextmenu.lib.MenuObject
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.Bitmap
+import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.View
 import android.widget.Toast
@@ -59,7 +60,9 @@ class ProductLayer1Activity : AppCompatActivity(), OnMenuItemClickListener, OnMe
             product = intent.getParcelableExtra("EXTRA_OBJ")
             Log.d(TAG, "product=" + product.toString())
 
-            collapsing_bar.title = product.name[1]
+            val activeLang = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+                    .getInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_EN)
+            collapsing_bar.title = product.name[activeLang]
             collapsing_bar.setExpandedTitleColor(resources.getColor(cateResId[product.cate]))
             collapsing_bar.setContentScrimColor(resources.getColor(cateResId[product.cate]))
             collapsing_bar.setStatusBarScrimColor(resources.getColor(cateResId[product.cate]))

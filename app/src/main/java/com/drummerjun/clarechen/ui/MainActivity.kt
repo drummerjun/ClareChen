@@ -2,6 +2,7 @@ package com.drummerjun.clarechen.ui
 
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.util.Log
@@ -59,6 +60,24 @@ class MainActivity : AppCompatActivity() {
             retrieveData()
         }
 
+        en_button.setOnClickListener {
+            PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_EN).apply()
+            productlistview.adapter.notifyDataSetChanged()
+            guillotineAnimation.close()
+        }
+
+        tw_button.setOnClickListener {
+            PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_TW).apply()
+            productlistview.adapter.notifyDataSetChanged()
+            guillotineAnimation.close()
+        }
+
+        cn_button.setOnClickListener {
+            PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_CN).apply()
+            productlistview.adapter.notifyDataSetChanged()
+            guillotineAnimation.close()
+        }
+
         staggeredLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         productlistview.layoutManager = staggeredLayoutManager
 
@@ -95,6 +114,9 @@ class MainActivity : AppCompatActivity() {
                                 productlistview.adapter.notifyDataSetChanged()
                             }
                         } else {
+                            Snackbar.make(root, R.string.db_fail, Snackbar.LENGTH_INDEFINITE)
+                                    .setAction(R.string.refresh, { retrieveData() })
+                                    .show()
                             Log.e(TAG, "db fail!!!!")
                         }
                         pull_to_refresh.setRefreshing(false)
@@ -116,12 +138,13 @@ class MainActivity : AppCompatActivity() {
                                 productlistview.adapter.notifyDataSetChanged()
                             }
                         } else {
+                            Snackbar.make(root, R.string.db_fail, Snackbar.LENGTH_INDEFINITE)
+                                    .setAction(R.string.refresh, { retrieveData() })
+                                    .show()
                             Log.e(TAG, "db fail!!!!")
                         }
                         pull_to_refresh.setRefreshing(false)
-
                     }
         }
     }
 }
-

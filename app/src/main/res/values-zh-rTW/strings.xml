@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="refresh">更新</string>
+    <string name="db_fail">無法取得商品資訊</string>
     <string name="buy">前往Pinkoi購買</string>
     <string name="for_him">給他</string>
     <string name="for_her">給她</string>

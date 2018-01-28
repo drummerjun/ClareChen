@@ -1,11 +1,13 @@
 package com.drummerjun.clarechen.ui
 
 import android.content.Intent
+import android.preference.PreferenceManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.drummerjun.clarechen.Constants
 import com.drummerjun.clarechen.GlideApp
 import com.drummerjun.clarechen.R
 import com.drummerjun.clarechen.obj.Product
@@ -45,8 +47,11 @@ class ProductAdapter (private val products: ArrayList<Product>) :
 
     class ProductViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         fun bind(product: Product) {
+            val activeLang = PreferenceManager
+                    .getDefaultSharedPreferences(itemView.context.applicationContext)
+                    .getInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_EN)
             GlideApp.with(itemView.context).load(product.image[0]).into(itemView.product_image)
-            itemView.product_name.text = product.name[1]
+            itemView.product_name.text = product.name[activeLang]
             itemView.product_price.text = product.price[0]
         }
     }

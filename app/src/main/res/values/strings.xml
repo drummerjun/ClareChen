@@ -21,6 +21,8 @@
         <item>SGD:Singapore Dollar</item>
         <item>RM:Malaysian Ringgit</item>
     </string-array>
+    <string name="refresh">Refresh</string>
+    <string name="db_fail">Database error</string>
     <string name="for_him">For Him</string>
     <string name="for_her">For Her</string>
     <string name="for_all">For Love</string>

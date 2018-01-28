@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="refresh">刷新</string>
+    <string name="db_fail">无法取得商品资讯</string>
     <string name="buy">前往Pinkoi购买</string>
     <string name="for_him">给他</string>
     <string name="for_her">给她</string>
