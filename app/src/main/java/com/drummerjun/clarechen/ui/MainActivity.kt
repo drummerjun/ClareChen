@@ -15,6 +15,7 @@ import com.drummerjun.clarechen.obj.Product
 import com.yalantis.guillotine.animation.GuillotineAnimation
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.guillotine.*
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,27 @@ class MainActivity : AppCompatActivity() {
 
         val guillotineMenu = LayoutInflater.from(this).inflate(R.layout.guillotine, null)
         root.addView(guillotineMenu)
+
+        val currentLang = PreferenceManager.getDefaultSharedPreferences(applicationContext).getInt(Constants.KEY_ACTIVE_LANG, -1)
+        if(currentLang == -1) {
+            val currentTag = Locale.getDefault().toLanguageTag()
+            val editor = PreferenceManager.getDefaultSharedPreferences(applicationContext).edit()
+            Log.d(TAG, "current language=" + currentTag)
+            when (currentTag) {
+                Constants.LANG_TW_TAG -> {
+                    tw_button.isActivated = true
+                    editor.putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_TW).apply()
+                }
+                Constants.LANG_CN_TAG -> {
+                    cn_button.isActivated = true
+                    editor.putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_CN).apply()
+                }
+                else ->  {
+                    en_button.isActivated = true
+                    editor.putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_EN).apply()
+                }
+            }
+        }
 
         guillotineAnimation = GuillotineAnimation.GuillotineBuilder(guillotineMenu, guillotineMenu.findViewById(R.id.guillotine_hamburger), content_hamburger)
                 .setStartDelay(250)
@@ -62,20 +84,29 @@ class MainActivity : AppCompatActivity() {
 
         en_button.setOnClickListener {
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_EN).apply()
-            productlistview.adapter.notifyDataSetChanged()
             guillotineAnimation.close()
+            en_button.isActivated = true
+            tw_button.isActivated = false
+            cn_button.isActivated = false
+            productlistview.adapter?.notifyDataSetChanged()
         }
 
         tw_button.setOnClickListener {
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_TW).apply()
-            productlistview.adapter.notifyDataSetChanged()
             guillotineAnimation.close()
+            en_button.isActivated = false
+            tw_button.isActivated = true
+            cn_button.isActivated = false
+            productlistview.adapter?.notifyDataSetChanged()
         }
 
         cn_button.setOnClickListener {
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_CN).apply()
-            productlistview.adapter.notifyDataSetChanged()
             guillotineAnimation.close()
+            en_button.isActivated = false
+            tw_button.isActivated = false
+            cn_button.isActivated = true
+            productlistview.adapter?.notifyDataSetChanged()
         }
 
         staggeredLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)

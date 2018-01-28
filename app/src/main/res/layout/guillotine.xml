@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/circular"
             android:gravity="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/active_color"
             android:textStyle="bold"
             android:text="EN"/>
 
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/circular"
             android:gravity="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/active_color"
             android:textStyle="bold"
             android:text="繁"/>
 
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/circular"
             android:gravity="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/active_color"
             android:textStyle="bold"
             android:text="简"/>
     </LinearLayout>
