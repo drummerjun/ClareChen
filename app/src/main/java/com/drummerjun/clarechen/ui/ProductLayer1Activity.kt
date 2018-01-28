@@ -1,44 +1,48 @@
 package com.drummerjun.clarechen.ui
 
 import android.annotation.SuppressLint
-import android.content.res.ColorStateList
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
-import android.net.Uri
-import android.os.Bundle
 import android.os.Build
+import android.os.Bundle
 import android.support.v4.view.ViewCompat
-import android.support.v7.app.ActionBar
-
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.graphics.Palette
-import com.drummerjun.clarechen.R
 import android.transition.Slide
 import android.util.Log
+import android.view.MenuItem
 import com.drummerjun.clarechen.Constants
 import com.drummerjun.clarechen.GlideApp
+import com.drummerjun.clarechen.R
 import com.drummerjun.clarechen.obj.Product
+import com.yalantis.contextmenu.lib.ContextMenuDialogFragment
+import com.yalantis.contextmenu.lib.MenuParams
 import kotlinx.android.synthetic.main.activity_layer1.*
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.target.Target
+import com.yalantis.contextmenu.lib.MenuObject
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.Bitmap
+import android.view.Menu
+import android.view.View
+import android.widget.Toast
+import com.yalantis.contextmenu.lib.interfaces.OnMenuItemClickListener
+import com.yalantis.contextmenu.lib.interfaces.OnMenuItemLongClickListener
+import android.view.MenuInflater
+
+
 
 
 /**
- * Created by ehs_app_1 on 20/01/2018.
+ * Created by drummerjun on 20/01/2018.
  */
-class ProductLayer1Activity : AppCompatActivity() {
+class ProductLayer1Activity : AppCompatActivity(), OnMenuItemClickListener, OnMenuItemLongClickListener {
     private val TAG = ProductLayer1Activity::class.simpleName
     private lateinit var product: Product
+    private lateinit var menuDialogFragment: ContextMenuDialogFragment
     private val cateResId = arrayOf(R.color.colorPrimaryDark, R.color.colorAccent, R.color.colorPrimary)
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            var transition = Slide()
+            val transition = Slide()
             transition.excludeTarget(android.R.id.statusBarBackground, true)
             window.enterTransition = transition
             window.returnTransition = transition
@@ -49,9 +53,7 @@ class ProductLayer1Activity : AppCompatActivity() {
         supportPostponeEnterTransition()
 
         setSupportActionBar(toolbar1)
-        supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if(intent.hasExtra("EXTRA_OBJ")) {
             product = intent.getParcelableExtra("EXTRA_OBJ")
@@ -88,7 +90,82 @@ class ProductLayer1Activity : AppCompatActivity() {
             title1.text = product.description
             details1.text = product.price[0]
         }
+
+        initMenuFragment()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.layer1_main, menu)
+        return true
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+            R.id.context_menu -> {
+                if(supportFragmentManager.findFragmentByTag(ContextMenuDialogFragment.TAG) == null) {
+                    menuDialogFragment.show(supportFragmentManager, ContextMenuDialogFragment.TAG)
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun initMenuFragment() {
+        val menuParams = MenuParams()
+        menuParams.actionBarSize = resources.getDimension(R.dimen.fab_size).toInt()
+        Log.d(TAG, "menuParams.actionBarSize=" + menuParams.actionBarSize)
+
+        menuParams.menuObjects = getMenuObjects()
+        menuParams.isClosableOutside = false
+
+        menuDialogFragment = ContextMenuDialogFragment.newInstance(menuParams)
+        menuDialogFragment.setItemClickListener(this)
+        menuDialogFragment.setItemLongClickListener(this)
+    }
+
+    private fun getMenuObjects(): List<MenuObject> {
+        val menuObjects = ArrayList<MenuObject>()
+
+        val close = MenuObject()
+        close.resource = R.drawable.icn_close
+
+        val send = MenuObject("Send message")
+        send.resource = R.drawable.icn_1
+
+        val like = MenuObject("Like profile")
+        val b = BitmapFactory.decodeResource(resources, R.drawable.icn_2)
+        like.bitmap = b
+
+        val addFr = MenuObject("Add to friends")
+        val bd = BitmapDrawable(resources,
+                BitmapFactory.decodeResource(resources, R.drawable.icn_3))
+        addFr.drawable = bd
+
+        val addFav = MenuObject("Add to favorites")
+        addFav.resource = R.drawable.icn_4
+
+        val block = MenuObject("Block user")
+        block.resource = R.drawable.icn_5
+
+        menuObjects.add(close)
+        menuObjects.add(send)
+        menuObjects.add(like)
+        menuObjects.add(addFr)
+        menuObjects.add(addFav)
+        menuObjects.add(block)
+        return menuObjects
+    }
+
+    override fun onMenuItemClick(clickedView: View?, position: Int) {
+        Toast.makeText(this, "Clicked on position: " + position, Toast.LENGTH_SHORT).show();
+    }
+
+    override fun onMenuItemLongClick(clickedView: View?, position: Int) {
+        Toast.makeText(this, "Long clicked on position: " + position, Toast.LENGTH_SHORT).show();
+    }
 }

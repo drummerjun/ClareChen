@@ -3,10 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ClareChen.iml" filepath="$PROJECT_DIR$/ClareChen.iml" />
-      <module fileurl="file://C:\Users\drummerjun\AndroidStudioProjects\ClareChen\ClareChen.iml" filepath="C:\Users\drummerjun\AndroidStudioProjects\ClareChen\ClareChen.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\drummerjun\AndroidStudioProjects\ClareChen\app\app.iml" filepath="C:\Users\drummerjun\AndroidStudioProjects\ClareChen\app\app.iml" />
-      <module fileurl="file://C:\Users\drummerjun\AndroidStudioProjects\ClareChen\third_party\bypass\bypass.iml" filepath="C:\Users\drummerjun\AndroidStudioProjects\ClareChen\third_party\bypass\bypass.iml" />
     </modules>
   </component>
 </project>
