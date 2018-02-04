@@ -1,34 +1,29 @@
 package com.drummerjun.clarechen.ui
 
 import android.annotation.SuppressLint
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.os.Build
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v4.view.ViewCompat
 import android.support.v7.app.AppCompatActivity
 import android.transition.Slide
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import com.drummerjun.clarechen.Constants
 import com.drummerjun.clarechen.GlideApp
 import com.drummerjun.clarechen.R
 import com.drummerjun.clarechen.obj.Product
 import com.yalantis.contextmenu.lib.ContextMenuDialogFragment
-import com.yalantis.contextmenu.lib.MenuParams
-import kotlinx.android.synthetic.main.activity_layer1.*
 import com.yalantis.contextmenu.lib.MenuObject
-import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.Bitmap
-import android.preference.PreferenceManager
-import android.view.Menu
-import android.view.View
-import android.widget.Toast
+import com.yalantis.contextmenu.lib.MenuParams
 import com.yalantis.contextmenu.lib.interfaces.OnMenuItemClickListener
 import com.yalantis.contextmenu.lib.interfaces.OnMenuItemLongClickListener
-import android.view.MenuInflater
-
-
-
+import kotlinx.android.synthetic.main.activity_layer1.*
 
 /**
  * Created by drummerjun on 20/01/2018.
@@ -37,7 +32,7 @@ class ProductLayer1Activity : AppCompatActivity(), OnMenuItemClickListener, OnMe
     private val TAG = ProductLayer1Activity::class.simpleName
     private lateinit var product: Product
     private lateinit var menuDialogFragment: ContextMenuDialogFragment
-    private val cateResId = arrayOf(R.color.colorPrimaryDark, R.color.colorAccent, R.color.colorPrimary)
+    private val cateResId = arrayOf(R.color.color_all, R.color.colorAccent, R.color.colorPrimary)
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -137,22 +132,22 @@ class ProductLayer1Activity : AppCompatActivity(), OnMenuItemClickListener, OnMe
         val close = MenuObject()
         close.resource = R.drawable.icn_close
 
-        val send = MenuObject("Send message")
+        val send = MenuObject("Option 1")
         send.resource = R.drawable.icn_1
 
-        val like = MenuObject("Like profile")
+        val like = MenuObject("Option 2")
         val b = BitmapFactory.decodeResource(resources, R.drawable.icn_2)
         like.bitmap = b
 
-        val addFr = MenuObject("Add to friends")
+        val addFr = MenuObject("Option 3")
         val bd = BitmapDrawable(resources,
                 BitmapFactory.decodeResource(resources, R.drawable.icn_3))
         addFr.drawable = bd
 
-        val addFav = MenuObject("Add to favorites")
+        val addFav = MenuObject("Option 4")
         addFav.resource = R.drawable.icn_4
 
-        val block = MenuObject("Block user")
+        val block = MenuObject("Option 5")
         block.resource = R.drawable.icn_5
 
         menuObjects.add(close)
@@ -165,10 +160,10 @@ class ProductLayer1Activity : AppCompatActivity(), OnMenuItemClickListener, OnMe
     }
 
     override fun onMenuItemClick(clickedView: View?, position: Int) {
-        Toast.makeText(this, "Clicked on position: " + position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Clicked on position: " + position, Toast.LENGTH_SHORT).show()
     }
 
     override fun onMenuItemLongClick(clickedView: View?, position: Int) {
-        Toast.makeText(this, "Long clicked on position: " + position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Long clicked on position: " + position, Toast.LENGTH_SHORT).show()
     }
 }

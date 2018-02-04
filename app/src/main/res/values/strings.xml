@@ -22,6 +22,7 @@
         <item>RM:Malaysian Ringgit</item>
     </string-array>
     <string name="refresh">Refresh</string>
+    <string name="banner_fail">Database error</string>
     <string name="db_fail">Database error</string>
     <string name="for_him">For Him</string>
     <string name="for_her">For Her</string>

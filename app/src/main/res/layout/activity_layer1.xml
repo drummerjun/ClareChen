@@ -20,6 +20,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+            app:statusBarScrim="@android:color/transparent"
             app:expandedTitleGravity="end|bottom"
             app:expandedTitleMarginBottom="@dimen/padding_normal"
             app:expandedTitleMarginStart="@dimen/padding_normal">

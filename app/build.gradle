@@ -53,6 +53,8 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:${versions.glide}"
     implementation 'jp.wasabeef:glide-transformations:2.0.2'
     implementation 'com.orhanobut:dialogplus:1.11@aar'
+    implementation 'com.jude:rollviewpager:1.4.6'
+    implementation 'com.github.pwittchen:reactivenetwork-rx2:0.12.3'
     //Yalantis Libraries: https://yalantis.com/
     implementation 'com.github.Yalantis:GuillotineMenu-Android:1.2'
     implementation 'com.yalantis:phoenix:1.2.3'

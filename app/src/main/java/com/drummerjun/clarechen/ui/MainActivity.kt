@@ -11,12 +11,16 @@ import android.view.View
 import com.drummerjun.clarechen.CCApp
 import com.drummerjun.clarechen.Constants
 import com.drummerjun.clarechen.R
+import com.drummerjun.clarechen.obj.Banner
 import com.drummerjun.clarechen.obj.Product
 import com.yalantis.guillotine.animation.GuillotineAnimation
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.guillotine.*
 import java.util.*
 import java.util.concurrent.TimeUnit
+import com.drummerjun.clarechen.R.id.main_banner
+
+
 
 class MainActivity : AppCompatActivity() {
     private val TAG = MainActivity::class.simpleName
@@ -43,11 +47,11 @@ class MainActivity : AppCompatActivity() {
             val editor = PreferenceManager.getDefaultSharedPreferences(applicationContext).edit()
             Log.d(TAG, "current language=" + currentTag)
             when (currentTag) {
-                Constants.LANG_TW_TAG -> {
+                Constants.LANG_TW_TAG, Constants.LANG_HK_TAG -> {
                     tw_button.isActivated = true
                     editor.putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_TW).apply()
                 }
-                Constants.LANG_CN_TAG -> {
+                Constants.LANG_CN_TAG, Constants.LANG_SG_TAG -> {
                     cn_button.isActivated = true
                     editor.putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_CN).apply()
                 }
@@ -111,12 +115,16 @@ class MainActivity : AppCompatActivity() {
 
         staggeredLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         productlistview.layoutManager = staggeredLayoutManager
+        retrieveBanner()
 
         pull_to_refresh.setOnRefreshListener({
             pull_to_refresh.setRefreshing(true)
-            retrieveData()
+            banner_container.visibility = View.GONE
+            retrieveBanner()
+//            retrieveData()
             pull_to_refresh.postDelayed({
                 pull_to_refresh.setRefreshing(false)
+                banner_container.visibility = View.VISIBLE
             }, TimeUnit.SECONDS.toMillis(3))
         })
     }
@@ -126,9 +134,36 @@ class MainActivity : AppCompatActivity() {
         retrieveData()
     }
 
+    private fun retrieveBanner() {
+//        banner_container.visibility = View.GONE
+        ccapp.getDb().collection(Constants.COLLECTION_BANNER).get()
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val banners = ArrayList<Banner>()
+                        task.result.mapTo(banners) { it.toObject(Banner::class.java) }
+                        Log.d(TAG, "banners=" + banners)
+                        val bannerAdapter = BannerAdapter(main_banner, banners[0].imageUrl, this@MainActivity)
+                        main_banner.setAdapter(bannerAdapter)
+//                        banner_container.visibility = View.VISIBLE
+                        banner_title.text = banners[0].title
+                        banner_sub.text = banners[0].subscript
+                    } else {
+                        Snackbar.make(root, R.string.db_fail, Snackbar.LENGTH_INDEFINITE)
+                                .setAction(R.string.refresh, { retrieveBanner() })
+                                .show()
+                        Log.e(TAG, "banner fail!!!!")
+                    }
+//                    retrieveData()
+                }
+                .addOnFailureListener {
+                    Log.e(TAG, "banner addOnFailureListener...........")
+                }
+    }
+
     private fun retrieveData() {
         val cate = PreferenceManager.getDefaultSharedPreferences(applicationContext).getInt(Constants.KEY_ACTIVE_CATE, 0)
         pull_to_refresh.setRefreshing(true)
+        banner_container.visibility = View.GONE
 
         if(cate == 0) {
             ccapp.getDb().collection(Constants.COLLECTION_PRODUCT).get()
@@ -151,6 +186,7 @@ class MainActivity : AppCompatActivity() {
                             Log.e(TAG, "db fail!!!!")
                         }
                         pull_to_refresh.setRefreshing(false)
+                        banner_container.visibility = View.VISIBLE
                     }
         } else {
             ccapp.getDb().collection(Constants.COLLECTION_PRODUCT)
@@ -175,6 +211,7 @@ class MainActivity : AppCompatActivity() {
                             Log.e(TAG, "db fail!!!!")
                         }
                         pull_to_refresh.setRefreshing(false)
+                        banner_container.visibility = View.VISIBLE
                     }
         }
     }
