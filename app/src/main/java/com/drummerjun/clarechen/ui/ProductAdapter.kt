@@ -10,12 +10,9 @@ import android.view.ViewGroup
 import com.drummerjun.clarechen.Constants
 import com.drummerjun.clarechen.GlideApp
 import com.drummerjun.clarechen.R
-import com.drummerjun.clarechen.obj.Product
+import com.drummerjun.clarechen.model.Product
 import kotlinx.android.synthetic.main.item_product.view.*
 
-/**
- * Created by drummerjun on 1/13/2018.
- */
 class ProductAdapter (private val products: ArrayList<Product>) :
         RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
     val TAG = ProductAdapter::class.simpleName

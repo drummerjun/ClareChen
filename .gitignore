@@ -16,4 +16,5 @@ google-services.json
 .externalNativeBuild
 /app/release
 /third_party/*/build
+/node_modules/
 *.apk

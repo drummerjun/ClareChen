@@ -17,7 +17,7 @@ import android.widget.Toast
 import com.drummerjun.clarechen.Constants
 import com.drummerjun.clarechen.GlideApp
 import com.drummerjun.clarechen.R
-import com.drummerjun.clarechen.obj.Product
+import com.drummerjun.clarechen.model.Product
 import com.yalantis.contextmenu.lib.ContextMenuDialogFragment
 import com.yalantis.contextmenu.lib.MenuObject
 import com.yalantis.contextmenu.lib.MenuParams
@@ -25,9 +25,6 @@ import com.yalantis.contextmenu.lib.interfaces.OnMenuItemClickListener
 import com.yalantis.contextmenu.lib.interfaces.OnMenuItemLongClickListener
 import kotlinx.android.synthetic.main.activity_layer1.*
 
-/**
- * Created by drummerjun on 20/01/2018.
- */
 class ProductLayer1Activity : AppCompatActivity(), OnMenuItemClickListener, OnMenuItemLongClickListener {
     private val TAG = ProductLayer1Activity::class.simpleName
     private lateinit var product: Product

@@ -1,8 +1,7 @@
-package com.drummerjun.clarechen.obj
+package com.drummerjun.clarechen.model
 
 import android.os.Parcel
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
 
 /**
  * Created by drummerjun on 1/13/2018.

@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${versions.kotlin}"
     implementation "com.android.support:palette-v7:${versions.supportLibrary}"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -65,7 +65,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-//    compile project(path: ':bypass')
+    //Dynamic localiation
+    implementation 'com.akexorcist:localizationactivity:1.2.2'
+//    implementation 'com.facebook.react:react-native:+'
 }
 
 apply plugin: 'com.google.gms.google-services'
