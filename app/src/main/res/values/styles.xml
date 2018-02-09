@@ -27,6 +27,13 @@
         <item name="rippleColor">@android:color/white</item>
     </style>
 
+    <style name="pinkoiStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:paddingTop">@dimen/touch_raise</item>
+        <item name="android:paddingBottom">@dimen/touch_raise</item>
+        <item name="android:background">@drawable/rounded_border</item>
+        <item name="android:layout_margin">@dimen/touch_raise</item>
+    </style>
+
     <style name="Toolbar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
@@ -51,13 +58,28 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
     <style name="TextView.GuillotineItem.GirlSelected">
-        <item name="android:textColor">@color/color_girl</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/guillotine_small_margin</item>
+        <item name="android:textSize">@dimen/guillotine_item_text_size</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textColor">@color/active_girl</item>
     </style>
     <style name="TextView.GuillotineItem.BoySelected">
-        <item name="android:textColor">@color/color_boy</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/guillotine_small_margin</item>
+        <item name="android:textSize">@dimen/guillotine_item_text_size</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textColor">@color/active_boy</item>
     </style>
     <style name="TextView.GuillotineItem.Selected">
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/guillotine_small_margin</item>
+        <item name="android:textSize">@dimen/guillotine_item_text_size</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textColor">@color/active_all</item>
     </style>
     <style name="ImageView" />
     <style name="ImageView.ContentItem">

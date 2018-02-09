@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Typeface
+import android.util.Log
 import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate
 import com.bumptech.glide.request.target.ViewTarget
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork
@@ -50,6 +51,8 @@ class CCApp : Application() {
                 .subscribe { isConnectedToInternet ->
                     if(!isConnectedToInternet) {
                         // do something with isConnectedToInternet value
+                    } else {
+                        Log.e(TAG, "no internet no internet no internet no internet")
                     }
                 }
     }
@@ -64,7 +67,6 @@ class CCApp : Application() {
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
-//        LocaleManager.setLocale(this)
         localizationDelegate.onConfigurationChanged(this)
     }
 
@@ -74,7 +76,7 @@ class CCApp : Application() {
             private set
     }
 
-    fun initTypeFace() {
+    private fun initTypeFace() {
         font = Typeface.createFromAsset(assets, "fonts/cc_font.otf")
     }
 

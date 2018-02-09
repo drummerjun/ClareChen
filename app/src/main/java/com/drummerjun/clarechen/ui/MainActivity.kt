@@ -20,11 +20,10 @@ import kotlinx.android.synthetic.main.guillotine.*
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-
 class MainActivity : LocalizationActivity() {
     private val TAG = MainActivity::class.simpleName
-    private lateinit var staggeredLayoutManager: StaggeredGridLayoutManager
     private val ccapp = CCApp.instance
+    private lateinit var staggeredLayoutManager: StaggeredGridLayoutManager
     private lateinit var adapter: ProductAdapter
     private lateinit var guillotineAnimation: GuillotineAnimation
 
@@ -66,11 +65,7 @@ class MainActivity : LocalizationActivity() {
                 }
             }
         } else {
-            when(currentLang) {
-                Constants.LANG_EN -> en_button.isActivated = true
-                Constants.LANG_TW -> tw_button.isActivated = true
-                Constants.LANG_CN -> cn_button.isActivated = true
-            }
+            activateLang(currentLang)
         }
 
         guillotineAnimation = GuillotineAnimation.GuillotineBuilder(guillotineMenu, guillotineMenu.findViewById(R.id.guillotine_hamburger), content_hamburger)
@@ -79,19 +74,27 @@ class MainActivity : LocalizationActivity() {
                 .setClosedOnStart(true)
                 .build()
 
+        activateCate(PreferenceManager.getDefaultSharedPreferences(applicationContext).getInt(Constants.KEY_ACTIVE_CATE, Constants.CATE_ALL))
+
         group_all.setOnClickListener {
+            activateCate(Constants.CATE_ALL)
+//            group_all.isActivated = true
+//            group_girls.isActivated = false
+//            group_boys.isActivated = false
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_CATE, 0).apply()
             guillotineAnimation.close()
             retrieveData()
         }
 
         group_girls.setOnClickListener {
+            activateCate(Constants.CATE_GIRLS)
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_CATE, 1).apply()
             guillotineAnimation.close()
             retrieveData()
         }
 
         group_boys.setOnClickListener {
+            activateCate(Constants.CATE_BOYS)
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_CATE, 2).apply()
             guillotineAnimation.close()
             retrieveData()
@@ -99,30 +102,30 @@ class MainActivity : LocalizationActivity() {
 
         en_button.setOnClickListener {
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_EN).apply()
+            setDefaultLanguage(Locale.ENGLISH)
             guillotineAnimation.close()
-            en_button.isActivated = true
-            tw_button.isActivated = false
-            cn_button.isActivated = false
+            activateLang(Constants.LANG_EN)
+//            en_button.isActivated = true
+//            tw_button.isActivated = false
+//            cn_button.isActivated = false
             productlistview.adapter?.notifyDataSetChanged()
             setLanguage(Locale.ENGLISH)
         }
 
         tw_button.setOnClickListener {
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_TW).apply()
+            setDefaultLanguage(Locale.TRADITIONAL_CHINESE)
             guillotineAnimation.close()
-            en_button.isActivated = false
-            tw_button.isActivated = true
-            cn_button.isActivated = false
+            activateLang(Constants.LANG_TW)
             productlistview.adapter?.notifyDataSetChanged()
             setLanguage(Locale.TRADITIONAL_CHINESE)
         }
 
         cn_button.setOnClickListener {
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_LANG, Constants.LANG_CN).apply()
+            setDefaultLanguage(Locale.SIMPLIFIED_CHINESE)
             guillotineAnimation.close()
-            en_button.isActivated = false
-            tw_button.isActivated = false
-            cn_button.isActivated = true
+            activateLang(Constants.LANG_CN)
             productlistview.adapter?.notifyDataSetChanged()
             setLanguage(Locale.SIMPLIFIED_CHINESE)
         }
@@ -148,16 +151,6 @@ class MainActivity : LocalizationActivity() {
         retrieveData()
     }
 
-//    private fun setLocale(lang: String) {
-//        val myLocale = Locale(lang)
-//        Locale.setDefault(myLocale)
-//
-//        val conf = resources.configuration
-//        conf.setLocale(myLocale)
-//        createConfigurationContext(conf)
-//        resources.updateConfiguration(conf, resources.displayMetrics)
-//    }
-
     private fun retrieveBanner() {
         ccapp.getDb().collection(Constants.COLLECTION_BANNER).get()
                 .addOnCompleteListener { task ->
@@ -182,7 +175,7 @@ class MainActivity : LocalizationActivity() {
     }
 
     private fun retrieveData() {
-        val cate = PreferenceManager.getDefaultSharedPreferences(applicationContext).getInt(Constants.KEY_ACTIVE_CATE, 0)
+        val cate = PreferenceManager.getDefaultSharedPreferences(applicationContext).getInt(Constants.KEY_ACTIVE_CATE, Constants.CATE_ALL)
         pull_to_refresh.setRefreshing(true)
         banner_container.visibility = View.GONE
 
@@ -235,5 +228,17 @@ class MainActivity : LocalizationActivity() {
                         banner_container.visibility = View.VISIBLE
                     }
         }
+    }
+
+    private fun activateCate(selected: Int) {
+        val cates = listOf(group_all, group_girls, group_boys)
+        for(c in cates) c.isActivated = false
+        cates[selected].isActivated = true
+    }
+
+    private fun activateLang(selected: Int) {
+        val languages = listOf(en_button, tw_button, cn_button)
+        for(l in languages) l.isActivated = false
+        languages[selected].isActivated = true
     }
 }

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#84cacf</color>
-    <color name="colorPrimaryDark">#4484cacf</color>
+    <color name="colorPrimaryDark">#26192829</color>
     <color name="colorAccent">#fc929d</color>
 
     <color name="guillotine_background">#444153</color>
     <color name="guillotine_background_dark">#383547</color>
-    <color name="color_boy">#30d1d5</color>
-    <color name="color_girl">#ff5465</color>
-    <color name="color_all">#c0ca33</color>
+    <color name="color_boy">#1565c0</color>
+    <color name="color_girl">#c51162</color>
+    <color name="color_all">#2e7d32</color>
 
     <color name="background_light">#fafafa</color>
     <color name="scrim">#99323232</color>
@@ -18,7 +18,7 @@
     <color name="dribbble">#fff06292</color>
     <color name="fab_heart_empty">#ffffffff</color>
     <color name="fab_heart_full">#ffffffff</color>
-    <color name="dribbble_link_highlight">#b3f06292</color>
+    <color name="pinkoi_pink">#f0648f</color>
 
     <color name="text_primary_dark">#de000000</color> <!-- 87% -->
     <color name="text_secondary_dark">#8a000000</color> <!-- 54% -->

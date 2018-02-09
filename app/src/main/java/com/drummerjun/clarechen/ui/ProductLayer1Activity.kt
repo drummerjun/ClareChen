@@ -14,6 +14,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.drummerjun.clarechen.Constants
 import com.drummerjun.clarechen.GlideApp
 import com.drummerjun.clarechen.R
@@ -25,7 +26,7 @@ import com.yalantis.contextmenu.lib.interfaces.OnMenuItemClickListener
 import com.yalantis.contextmenu.lib.interfaces.OnMenuItemLongClickListener
 import kotlinx.android.synthetic.main.activity_layer1.*
 
-class ProductLayer1Activity : AppCompatActivity(), OnMenuItemClickListener, OnMenuItemLongClickListener {
+class ProductLayer1Activity : LocalizationActivity(), OnMenuItemClickListener, OnMenuItemLongClickListener {
     private val TAG = ProductLayer1Activity::class.simpleName
     private lateinit var product: Product
     private lateinit var menuDialogFragment: ContextMenuDialogFragment
@@ -85,7 +86,6 @@ class ProductLayer1Activity : AppCompatActivity(), OnMenuItemClickListener, OnMe
             title1.text = product.description
             details1.text = product.price[0]
         }
-
         initMenuFragment()
     }
 

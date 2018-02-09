@@ -72,7 +72,7 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardElevation="8dp"
+                app:cardElevation="4dp"
                 app:cardUseCompatPadding="true">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -101,4 +101,32 @@
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="bottom|right|end"
         style="@style/FabStyle" />
+
+    <RelativeLayout android:id="@+id/goto_pinkoi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/pinkoiStyle"
+        app:layout_anchor="@id/scroller"
+        app:layout_anchorGravity="bottom">
+        <TextView android:id="@+id/buy_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/buy_pinkoi"/>
+        <ImageView android:id="@+id/pinkoi_icon"
+            android:src="@drawable/ic_pinkoi"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/buy_text"/>
+    </RelativeLayout>
+    <!--<Button android:id="@+id/goto_pinkoi"-->
+        <!--app:layout_anchor="@id/scroller"-->
+        <!--app:layout_anchorGravity="bottom"-->
+        <!--style="@style/pinkoiStyle"-->
+        <!--android:drawableStart="@drawable/ic_pinkoi"-->
+        <!--android:text="@string/buy_pinkoi"/>-->
 </android.support.design.widget.CoordinatorLayout>

@@ -23,7 +23,7 @@
         <ImageView
             style="@style/ImageView.GuillotineItem"/>
         <com.drummerjun.clarechen.ui.widget.CCTextView
-            style="@style/TextView.GuillotineItem"
+            style="@style/TextView.GuillotineItem.GirlSelected"
             android:text="@string/for_her" />
     </LinearLayout>
 
@@ -32,7 +32,7 @@
         <ImageView
             style="@style/ImageView.GuillotineItem"/>
         <com.drummerjun.clarechen.ui.widget.CCTextView
-            style="@style/TextView.GuillotineItem"
+            style="@style/TextView.GuillotineItem.BoySelected"
             android:text="@string/for_him" />
     </LinearLayout>
 
@@ -41,7 +41,7 @@
         <ImageView
             style="@style/ImageView.GuillotineItem"/>
         <com.drummerjun.clarechen.ui.widget.CCTextView
-            style="@style/TextView.GuillotineItem"
+            style="@style/TextView.GuillotineItem.Selected"
             android:text="@string/for_all" />
     </LinearLayout>
 

@@ -37,40 +37,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-            <RelativeLayout android:id="@+id/banner_container"
-                android:visibility="visible"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:background="@drawable/scrim_dark">
-                <com.jude.rollviewpager.RollPagerView android:id="@+id/main_banner"
+                <RelativeLayout android:id="@+id/banner_container"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@drawable/scrim_dark">
+                    <com.jude.rollviewpager.RollPagerView android:id="@+id/main_banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:rollviewpager_play_delay="3000"/>
+                    <TextView android:id="@+id/banner_title"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:paddingStart="@dimen/padding_normal"
+                        android:paddingTop="@dimen/padding_normal"
+                        android:background="@drawable/scrim_180"/>
+                    <TextView android:id="@+id/banner_sub"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                        android:textAlignment="viewEnd"
+                        android:maxLines="2"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:paddingEnd="@dimen/padding_normal"
+                        android:paddingBottom="@dimen/padding_normal"/>
+                </RelativeLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/productlistview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:rollviewpager_play_delay="3000"/>
-                <TextView android:id="@+id/banner_title"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="top|start"
-                    android:paddingStart="@dimen/padding_normal"
-                    android:paddingTop="@dimen/padding_normal"
-                    android:background="@drawable/scrim_180"/>
-                <TextView android:id="@+id/banner_sub"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
-                    android:textAlignment="viewEnd"
-                    android:maxLines="2"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:paddingEnd="@dimen/padding_normal"
-                    android:paddingBottom="@dimen/padding_normal"/>
-            </RelativeLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/productlistview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical"/>
+                    android:scrollbars="vertical"/>
             </LinearLayout>
         </com.yalantis.phoenix.PullToRefreshView>
     </LinearLayout>
