@@ -9,3 +9,4 @@
 - [Context Menu by Yalantis](https://github.com/Yalantis/Context-Menu.Android)
 - [ReactiveNetwork](https://github.com/pwittchen/ReactiveNetwork)
 - [RollViewPager](https://github.com/Jude95/RollViewPager)
+- [Android-LocalizationActivity](https://github.com/akexorcist/Android-LocalizationActivity)
