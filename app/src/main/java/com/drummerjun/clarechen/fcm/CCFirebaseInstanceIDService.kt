@@ -5,7 +5,7 @@ import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.iid.FirebaseInstanceIdService
 
 /**
- * Created by drummerjun on 1/13/2018.
+ * Scribbled by drummerjun on 1/13/2018.
  */
 
 class CCFirebaseInstanceIDService : FirebaseInstanceIdService() {

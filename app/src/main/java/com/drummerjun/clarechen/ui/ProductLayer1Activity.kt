@@ -6,13 +6,12 @@ import android.graphics.drawable.BitmapDrawable
 import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewCompat
 import android.support.v7.app.AppCompatActivity
 import android.transition.Slide
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
+import android.view.*
 import android.widget.Toast
 import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.drummerjun.clarechen.Constants
@@ -30,7 +29,7 @@ class ProductLayer1Activity : LocalizationActivity(), OnMenuItemClickListener, O
     private val TAG = ProductLayer1Activity::class.simpleName
     private lateinit var product: Product
     private lateinit var menuDialogFragment: ContextMenuDialogFragment
-    private val cateResId = arrayOf(R.color.color_all, R.color.colorAccent, R.color.colorPrimary)
+    private val cateResId = arrayOf(R.color.color_all, R.color.color_girl, R.color.color_boy)
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +47,10 @@ class ProductLayer1Activity : LocalizationActivity(), OnMenuItemClickListener, O
 
         setSupportActionBar(toolbar1)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.transparent_statusbar)
 
         if(intent.hasExtra("EXTRA_OBJ")) {
             product = intent.getParcelableExtra("EXTRA_OBJ")

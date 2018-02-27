@@ -4,7 +4,7 @@ import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule
 
 /**
- * Created by drummerjun on 18/01/2018.
+ * Scribbled by drummerjun on 18/01/2018.
  */
 @GlideModule
 class CCGlideModule : AppGlideModule()

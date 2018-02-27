@@ -78,9 +78,6 @@ class MainActivity : LocalizationActivity() {
 
         group_all.setOnClickListener {
             activateCate(Constants.CATE_ALL)
-//            group_all.isActivated = true
-//            group_girls.isActivated = false
-//            group_boys.isActivated = false
             PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().putInt(Constants.KEY_ACTIVE_CATE, 0).apply()
             guillotineAnimation.close()
             retrieveData()
@@ -105,9 +102,6 @@ class MainActivity : LocalizationActivity() {
             setDefaultLanguage(Locale.ENGLISH)
             guillotineAnimation.close()
             activateLang(Constants.LANG_EN)
-//            en_button.isActivated = true
-//            tw_button.isActivated = false
-//            cn_button.isActivated = false
             productlistview.adapter?.notifyDataSetChanged()
             setLanguage(Locale.ENGLISH)
         }
@@ -136,12 +130,12 @@ class MainActivity : LocalizationActivity() {
 
         pull_to_refresh.setOnRefreshListener({
             pull_to_refresh.setRefreshing(true)
-            banner_container.visibility = View.GONE
+//            banner_container.visibility = View.GONE
             retrieveBanner()
 //            retrieveData()
             pull_to_refresh.postDelayed({
                 pull_to_refresh.setRefreshing(false)
-                banner_container.visibility = View.VISIBLE
+//                banner_container.visibility = View.VISIBLE
             }, TimeUnit.SECONDS.toMillis(3))
         })
     }
@@ -177,7 +171,7 @@ class MainActivity : LocalizationActivity() {
     private fun retrieveData() {
         val cate = PreferenceManager.getDefaultSharedPreferences(applicationContext).getInt(Constants.KEY_ACTIVE_CATE, Constants.CATE_ALL)
         pull_to_refresh.setRefreshing(true)
-        banner_container.visibility = View.GONE
+//        banner_container.visibility = View.GONE
 
         if(cate == 0) {
             ccapp.getDb().collection(Constants.COLLECTION_PRODUCT).get()
@@ -200,7 +194,6 @@ class MainActivity : LocalizationActivity() {
                             Log.e(TAG, "db fail!!!!")
                         }
                         pull_to_refresh.setRefreshing(false)
-                        banner_container.visibility = View.VISIBLE
                     }
         } else {
             ccapp.getDb().collection(Constants.COLLECTION_PRODUCT)
@@ -225,7 +218,6 @@ class MainActivity : LocalizationActivity() {
                             Log.e(TAG, "db fail!!!!")
                         }
                         pull_to_refresh.setRefreshing(false)
-                        banner_container.visibility = View.VISIBLE
                     }
         }
     }

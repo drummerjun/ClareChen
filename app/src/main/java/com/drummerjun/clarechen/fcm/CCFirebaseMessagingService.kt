@@ -5,7 +5,7 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
 /**
- * Created by drummerjun on 1/13/2018.
+ * Scribbled by drummerjun on 1/13/2018.
  */
 class CCFirebaseMessagingService : FirebaseMessagingService() {
     val TAG = "CCFCM";

@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.widget.ImageView
 
 /**
- * Created by drummerjun on 20/01/2018.
+ * Scribbled by drummerjun on 20/01/2018.
  */
 class SquareImageView : ImageView {
     constructor(context: Context) : super(context) {}
